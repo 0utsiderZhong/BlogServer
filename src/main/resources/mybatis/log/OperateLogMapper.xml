@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dimple.project.log.mapper.OperateLogMapper">
+<mapper namespace="com.clock.project.log.mapper.OperateLogMapper">
 
-    <resultMap type="com.dimple.project.log.domain.OperateLog" id="SysOperateLogResult">
+    <resultMap type="com.clock.project.log.domain.OperateLog" id="SysOperateLogResult">
         <id property="id" column="id"/>
         <result property="title" column="title"/>
         <result property="businessType" column="business_type"/>
@@ -44,14 +44,14 @@
         from operate_log
     </sql>
 
-    <insert id="insertOperateLog" parameterType="com.dimple.project.log.domain.OperateLog">
+    <insert id="insertOperateLog" parameterType="com.clock.project.log.domain.OperateLog">
         insert into operate_log(title, business_type, method, request_method, operator_type, operate_name, url, ip,
                                 location, param, json_result, status, error_msg, create_time, cost, create_by)
         values (#{title}, #{businessType}, #{method}, #{requestMethod}, #{operatorType}, #{operateName}, #{url}, #{ip},
                 #{location}, #{param}, #{jsonResult}, #{status}, #{errorMsg}, sysdate(), #{cost}, #{createBy})
     </insert>
 
-    <select id="selectOperateLogList" parameterType="com.dimple.project.log.domain.OperateLog"
+    <select id="selectOperateLogList" parameterType="com.clock.project.log.domain.OperateLog"
             resultMap="SysOperateLogResult">
         <include refid="selectOperateLogVo"/>
         where delete_time is null

@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dimple.project.blog.mapper.CategoryMapper">
+<mapper namespace="com.clock.project.blog.mapper.CategoryMapper">
 
-    <resultMap type="com.dimple.project.common.domain.Category" id="CategoryResult">
+    <resultMap type="com.clock.project.common.domain.Category" id="CategoryResult">
         <result property="id" column="id"/>
         <result property="title" column="title"/>
         <result property="description" column="description"/>
@@ -14,7 +14,7 @@
     </resultMap>
 
 
-    <select id="selectCategoryList" parameterType="com.dimple.project.common.domain.Category"
+    <select id="selectCategoryList" parameterType="com.clock.project.common.domain.Category"
             resultMap="CategoryResult">
         select id, title, description, support, create_by, create_time
         from category
@@ -39,14 +39,14 @@
         where id = #{id}
     </select>
 
-    <select id="selectSupportBlogCategoryList" resultType="com.dimple.project.common.domain.Category">
+    <select id="selectSupportBlogCategoryList" resultType="com.clock.project.common.domain.Category">
         select id, title, description, support, create_by, create_time
         from category
         where support = 1
           and delete_time is null
     </select>
 
-    <insert id="insertCategory" parameterType="com.dimple.project.common.domain.Category" useGeneratedKeys="true"
+    <insert id="insertCategory" parameterType="com.clock.project.common.domain.Category" useGeneratedKeys="true"
             keyProperty="id">
         insert into category
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -65,7 +65,7 @@
         </trim>
     </insert>
 
-    <update id="updateCategory" parameterType="com.dimple.project.common.domain.Category">
+    <update id="updateCategory" parameterType="com.clock.project.common.domain.Category">
         update category
         <set>
             <if test="title != null  and title != ''">title = #{title},</if>

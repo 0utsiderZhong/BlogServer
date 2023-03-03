@@ -23,7 +23,7 @@ swagger:
 # 日志配置
 logging:
   level:
-    com.dimple: debug
+    com.clock: debug
     org.springframework: warn
 
 # Spring配置
@@ -67,7 +67,7 @@ spring:
 # MyBatis配置
 mybatis:
   # 搜索指定包别名
-  typeAliasesPackage: com.dimple.project.**.domain
+  typeAliasesPackage: com.clock.project.**.domain
   # 配置mapper的扫描，找到所有的mapper.xml映射文件
   mapperLocations: classpath*:mybatis/**/*Mapper.xml
   # 全局配置

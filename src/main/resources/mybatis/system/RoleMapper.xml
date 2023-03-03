@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dimple.project.system.mapper.RoleMapper">
+<mapper namespace="com.clock.project.system.mapper.RoleMapper">
 
-    <resultMap type="com.dimple.project.system.domain.Role" id="SysRoleResult">
+    <resultMap type="com.clock.project.system.domain.Role" id="SysRoleResult">
         <id property="id" column="id"/>
         <result property="roleName" column="role_name"/>
         <result property="roleKey" column="role_key"/>
@@ -25,7 +25,7 @@
 	        left join user u on u.id = ur.user_id
     </sql>
 
-    <select id="selectRoleList" parameterType="com.dimple.project.system.domain.Role" resultMap="SysRoleResult">
+    <select id="selectRoleList" parameterType="com.clock.project.system.domain.Role" resultMap="SysRoleResult">
         <include refid="selectRoleVo"/>
         where r.delete_time is null
         <if test="roleName != null and roleName != ''">
@@ -82,7 +82,7 @@
         where r.role_key=#{roleKey}
     </select>
 
-    <insert id="insertRole" parameterType="com.dimple.project.system.domain.Role" useGeneratedKeys="true"
+    <insert id="insertRole" parameterType="com.clock.project.system.domain.Role" useGeneratedKeys="true"
             keyProperty="id">
         insert into role(
         <if test="id != null and id != 0">id,</if>
@@ -105,7 +105,7 @@
         )
     </insert>
 
-    <update id="updateRole" parameterType="com.dimple.project.system.domain.Role">
+    <update id="updateRole" parameterType="com.clock.project.system.domain.Role">
         update role
         <set>
             <if test="roleName != null and roleName != ''">role_name = #{roleName},</if>

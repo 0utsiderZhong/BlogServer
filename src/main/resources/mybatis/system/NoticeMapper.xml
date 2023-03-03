@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dimple.project.system.mapper.NoticeMapper">
+<mapper namespace="com.clock.project.system.mapper.NoticeMapper">
 
-    <resultMap type="com.dimple.project.system.domain.Notice" id="SysNoticeResult">
+    <resultMap type="com.clock.project.system.domain.Notice" id="SysNoticeResult">
         <result property="id" column="id"/>
         <result property="title" column="title"/>
         <result property="type" column="type"/>
@@ -27,7 +27,7 @@
         where id = #{id} and delete_time is null
     </select>
 
-    <select id="selectNoticeList" parameterType="com.dimple.project.system.domain.Notice"
+    <select id="selectNoticeList" parameterType="com.clock.project.system.domain.Notice"
             resultMap="SysNoticeResult">
         <include refid="selectNoticeVo"/>
         where delete_time is null
@@ -42,7 +42,7 @@
         </if>
     </select>
 
-    <insert id="insertNotice" parameterType="com.dimple.project.system.domain.Notice">
+    <insert id="insertNotice" parameterType="com.clock.project.system.domain.Notice">
         insert into notice (
         <if test="title != null and title != '' ">title,</if>
         <if test="type != null and type != '' ">type,</if>
@@ -62,7 +62,7 @@
         )
     </insert>
 
-    <update id="updateNotice" parameterType="com.dimple.project.system.domain.Notice">
+    <update id="updateNotice" parameterType="com.clock.project.system.domain.Notice">
         update notice
         <set>
             <if test="title != null and title != ''">title = #{title},</if>

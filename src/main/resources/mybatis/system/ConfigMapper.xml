@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dimple.project.system.mapper.ConfigMapper">
+<mapper namespace="com.clock.project.system.mapper.ConfigMapper">
 
-    <resultMap type="com.dimple.project.system.domain.Config" id="SysConfigResult">
+    <resultMap type="com.clock.project.system.domain.Config" id="SysConfigResult">
         <id property="id" column="id"/>
         <result property="configKey" column="config_key"/>
         <result property="configValue" column="config_value"/>
@@ -31,12 +31,12 @@
         </where>
     </sql>
 
-    <select id="selectConfig" parameterType="com.dimple.project.system.domain.Config" resultMap="SysConfigResult">
+    <select id="selectConfig" parameterType="com.clock.project.system.domain.Config" resultMap="SysConfigResult">
         <include refid="selectConfigVo"/>
         <include refid="sqlwhereSearch"/>
     </select>
 
-    <select id="selectConfigList" parameterType="com.dimple.project.system.domain.Config"
+    <select id="selectConfigList" parameterType="com.clock.project.system.domain.Config"
             resultMap="SysConfigResult">
         <include refid="selectConfigVo"/>
         where delete_time is null
@@ -57,7 +57,7 @@
         where config_key = #{configKey}
     </select>
 
-    <insert id="insertConfig" parameterType="com.dimple.project.system.domain.Config">
+    <insert id="insertConfig" parameterType="com.clock.project.system.domain.Config">
         insert into config (
         <if test="configKey != null and configKey != '' ">config_key,</if>
         <if test="configValue != null and configValue != '' ">config_value,</if>
@@ -73,7 +73,7 @@
         )
     </insert>
 
-    <update id="updateConfig" parameterType="com.dimple.project.system.domain.Config">
+    <update id="updateConfig" parameterType="com.clock.project.system.domain.Config">
         update config
         <set>
             <if test="configKey != null and configKey != ''">config_key = #{configKey},</if>

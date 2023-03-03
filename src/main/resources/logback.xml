@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <!-- 日志存放路径 -->
-    <property name="log.path" value="/Users/bianxiaofeng/logs"/>
+    <property name="log.path" value="/Users/clock/logs"/>
     <!-- 日志输出格式 -->
     <property name="log.pattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n"/>
 
@@ -72,7 +72,7 @@
     </appender>
 
     <!-- 系统模块日志级别控制  -->
-    <logger name="com.dimple" level="info"/>
+    <logger name="com.clock" level="info"/>
     <!-- Spring日志级别控制  -->
     <logger name="org.springframework" level="warn"/>
 
@@ -99,6 +99,6 @@
             <charset>UTF-8</charset>
         </encoder>
         <!--此日志appender是为开发使用，只配置最底级别，控制台输出的日志级别是大于或等于此级别的日志信息-->
-        <filter class="com.dimple.framework.config.websocket.LogFilter"></filter>
+        <filter class="com.clock.framework.config.websocket.LogFilter"></filter>
     </appender>
 </configuration> 

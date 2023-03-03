@@ -1,14 +1,8 @@
 
-# DimpleBlog
+# ClockBlog
 #### 介绍
-`Dimple Blog`是基于SpringBoot2搭建的个人博客系统.
+`Clock Blog`是基于SpringBoot2搭建的个人博客系统.
 目前master分支的是基于SpringBoot2和Vue的前后端分离版本.
-
-前台前端仓库为：https://github.com/DimpleFeng/DimpleBlogFront 
-
-后台前端仓库为：https://github.com/DimpleFeng/DimpleBlogBackend
-
-`thymeleaf-version` https://github.com/martin-chips/DimpleBlog/tree/Thymeleaf-Version 是基于SpringBoot2的一体机代码.建议不熟悉Vue的可以切到这个版本使用.
 
 ### 体验链接地址
 [边小丰的个人博客](http://www.bianxiaofeng.com.cn/)

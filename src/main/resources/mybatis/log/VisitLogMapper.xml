@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dimple.project.log.mapper.VisitLogMapper">
-    <resultMap type="com.dimple.project.log.domain.VisitLog" id="VisitLogResult">
+<mapper namespace="com.clock.project.log.mapper.VisitLogMapper">
+    <resultMap type="com.clock.project.log.domain.VisitLog" id="VisitLogResult">
         <id property="id" column="id"/>
         <result property="ip" column="ip"/>
         <result property="location" column="location"/>
@@ -16,7 +16,7 @@
         <result property="createTime" column="create_time"/>
     </resultMap>
 
-    <insert id="insertVisitLog" parameterType="com.dimple.project.log.domain.VisitLog">
+    <insert id="insertVisitLog" parameterType="com.clock.project.log.domain.VisitLog">
         insert into visit_log(
         <if test="ip!=null and ip!=''">ip,</if>
         <if test="location!=null and location!=''">location,</if>
@@ -46,7 +46,7 @@
         )
     </insert>
 
-    <select id="selectVisitLogList" parameterType="com.dimple.project.log.domain.VisitLog"
+    <select id="selectVisitLogList" parameterType="com.clock.project.log.domain.VisitLog"
             resultMap="VisitLogResult">
         select id, ip, location, browser, os, title,status, error_msg,spider,url, create_time,page_id from visit_log
         where delete_time is null

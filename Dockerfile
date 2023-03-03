@@ -1,5 +1,5 @@
 FROM java:8
 VOLUME /tmp
-ADD /target/DimpleBlog.jar DimpleBlog.jar
+ADD /target/ClockBlog.jar ClockBlog.jar
 EXPOSE 8888
-ENTRYPOINT [ "java", "-jar", "/DimpleBlog.jar" ]
+ENTRYPOINT [ "java", "-jar", "/ClockBlog.jar" ]

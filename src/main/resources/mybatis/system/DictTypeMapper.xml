@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dimple.project.system.mapper.DictTypeMapper">
+<mapper namespace="com.clock.project.system.mapper.DictTypeMapper">
 
-    <resultMap type="com.dimple.project.system.domain.DictType" id="SysDictTypeResult">
+    <resultMap type="com.clock.project.system.domain.DictType" id="SysDictTypeResult">
         <id property="id" column="id"/>
         <result property="dictName" column="dict_name"/>
         <result property="dictType" column="dict_type"/>
@@ -20,7 +20,7 @@
 		from dict_type
     </sql>
 
-    <select id="selectDictTypeList" parameterType="com.dimple.project.system.domain.DictType"
+    <select id="selectDictTypeList" parameterType="com.clock.project.system.domain.DictType"
             resultMap="SysDictTypeResult">
         <include refid="selectDictTypeVo"/>
         where delete_time is null
@@ -65,7 +65,7 @@
  		update dict_type set delete_by =#{loginUsername} , delete_time= sysdate()  where id = #{id}
  	</delete>
 
-    <update id="updateDictType" parameterType="com.dimple.project.system.domain.DictType">
+    <update id="updateDictType" parameterType="com.clock.project.system.domain.DictType">
         update dict_type
         <set>
             <if test="dictName != null and dictName != ''">dict_name = #{dictName},</if>
@@ -78,7 +78,7 @@
         where id = #{id}
     </update>
 
-    <insert id="insertDictType" parameterType="com.dimple.project.system.domain.DictType">
+    <insert id="insertDictType" parameterType="com.clock.project.system.domain.DictType">
         insert into dict_type(
         <if test="dictName != null and dictName != ''">dict_name,</if>
         <if test="dictType != null and dictType != ''">dict_type,</if>

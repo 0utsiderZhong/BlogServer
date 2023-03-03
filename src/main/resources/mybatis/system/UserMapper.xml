@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dimple.project.system.mapper.UserMapper">
+<mapper namespace="com.clock.project.system.mapper.UserMapper">
 
-    <resultMap type="com.dimple.project.system.domain.SysUser" id="SysUserResult">
+    <resultMap type="com.clock.project.system.domain.SysUser" id="SysUserResult">
         <id property="id" column="id"/>
         <result property="userName" column="user_name"/>
         <result property="nickName" column="nick_name"/>
@@ -24,7 +24,7 @@
         <collection property="roles" javaType="java.util.List" resultMap="RoleResult"/>
     </resultMap>
 
-    <resultMap id="RoleResult" type="com.dimple.project.system.domain.Role">
+    <resultMap id="RoleResult" type="com.clock.project.system.domain.Role">
         <id property="id" column="id"/>
         <result property="roleName" column="role_name"/>
         <result property="roleKey" column="role_key"/>
@@ -40,7 +40,7 @@
 		    left join role r on r.id = ur.role_id
     </sql>
 
-    <select id="selectUserList" parameterType="com.dimple.project.system.domain.SysUser" resultMap="SysUserResult">
+    <select id="selectUserList" parameterType="com.clock.project.system.domain.SysUser" resultMap="SysUserResult">
         <include refid="selectUserVo"/>
         where u.delete_time is null
         <if test="userName != null and userName != ''">
@@ -82,7 +82,7 @@
 		select id, email from user where email = #{email}
 	</select>
 
-    <insert id="insertUser" parameterType="com.dimple.project.system.domain.SysUser" useGeneratedKeys="true"
+    <insert id="insertUser" parameterType="com.clock.project.system.domain.SysUser" useGeneratedKeys="true"
             keyProperty="id">
         insert into user(
         <if test="id != null and id != 0">id,</if>
@@ -113,7 +113,7 @@
         )
     </insert>
 
-    <update id="updateUser" parameterType="com.dimple.project.system.domain.SysUser">
+    <update id="updateUser" parameterType="com.clock.project.system.domain.SysUser">
         update user
         <set>
             <if test="userName != null and userName != ''">user_name = #{userName},</if>
@@ -137,11 +137,11 @@
     <!-- 		update sys_user set status = #{status} where id = #{id}-->
     <!--	</update>-->
 
-    <update id="updateUserAvatar" parameterType="com.dimple.project.system.domain.SysUser">
+    <update id="updateUserAvatar" parameterType="com.clock.project.system.domain.SysUser">
  		update user set avatar = #{avatar} where user_name = #{userName}
 	</update>
 
-    <update id="resetUserPwd" parameterType="com.dimple.project.system.domain.SysUser">
+    <update id="resetUserPwd" parameterType="com.clock.project.system.domain.SysUser">
  		update user set password = #{password} where user_name = #{userName}
 	</update>
 

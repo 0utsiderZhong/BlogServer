@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dimple.project.system.mapper.MenuMapper">
+<mapper namespace="com.clock.project.system.mapper.MenuMapper">
 
-    <resultMap type="com.dimple.project.system.domain.Menu" id="SysMenuResult">
+    <resultMap type="com.clock.project.system.domain.Menu" id="SysMenuResult">
         <id property="id" column="id"/>
         <result property="menuName" column="menu_name"/>
         <result property="parentName" column="parent_name"/>
@@ -29,7 +29,7 @@
 		from menu
     </sql>
 
-    <select id="selectMenuList" parameterType="com.dimple.project.system.domain.Menu" resultMap="SysMenuResult">
+    <select id="selectMenuList" parameterType="com.clock.project.system.domain.Menu" resultMap="SysMenuResult">
         <include refid="selectMenuVo"/>
         where delete_time is null
         <if test="menuName != null and menuName != ''">
@@ -94,12 +94,12 @@
 	    select count(1) from menu where parent_id = #{id}  and delete_time is null
 	</select>
 
-    <select id="checkMenuNameUnique" parameterType="com.dimple.project.system.domain.Menu" resultMap="SysMenuResult">
+    <select id="checkMenuNameUnique" parameterType="com.clock.project.system.domain.Menu" resultMap="SysMenuResult">
         <include refid="selectMenuVo"/>
         where menu_name=#{menuName} and parent_id = #{parentId} and delete_time is null
     </select>
 
-    <update id="updateMenu" parameterType="com.dimple.project.system.domain.Menu">
+    <update id="updateMenu" parameterType="com.clock.project.system.domain.Menu">
         update menu
         <set>
             <if test="menuName != null and menuName != ''">menu_name = #{menuName},</if>
@@ -119,7 +119,7 @@
         where id = #{id}
     </update>
 
-    <insert id="insertMenu" parameterType="com.dimple.project.system.domain.Menu">
+    <insert id="insertMenu" parameterType="com.clock.project.system.domain.Menu">
         insert into menu(
         <if test="id != null and id != 0">id,</if>
         <if test="parentId != null and parentId != 0">parent_id,</if>

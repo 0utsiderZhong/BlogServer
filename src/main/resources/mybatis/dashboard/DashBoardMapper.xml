@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dimple.project.home.mapper.DashBoardMapper">
+<mapper namespace="com.clock.project.home.mapper.DashBoardMapper">
 
     <select id="getVisitorCount" resultType="java.lang.Long">
         select count(*)
@@ -35,7 +35,7 @@
         order by spider
         limit 20
     </select>
-    <select id="getVisitLog" resultType="com.dimple.project.log.domain.VisitLog">
+    <select id="getVisitLog" resultType="com.clock.project.log.domain.VisitLog">
         select id,
                ip,
                page_id,
@@ -57,7 +57,7 @@
         from blog
         where id = #{pageId}
     </select>
-    <select id="getLoginLogList" resultType="com.dimple.project.log.domain.LoginLog">
+    <select id="getLoginLogList" resultType="com.clock.project.log.domain.LoginLog">
         select id,
                user_name,
                ip,
@@ -70,7 +70,7 @@
         from login_log
         where delete_time is null
     </select>
-    <select id="getOperateLogList" resultType="com.dimple.project.log.domain.OperateLog">
+    <select id="getOperateLogList" resultType="com.clock.project.log.domain.OperateLog">
         select id,
                title,
                business_type,
@@ -90,7 +90,7 @@
         from operate_log
         where delete_time is null
     </select>
-    <select id="getQuartzJobLogList" resultType="com.dimple.project.log.domain.QuartzJobLog">
+    <select id="getQuartzJobLogList" resultType="com.clock.project.log.domain.QuartzJobLog">
         select id,
                job_name,
                bean_name,
@@ -106,7 +106,7 @@
         where delete_time is null
     </select>
 
-    <select id="getAccessData" resultType="com.dimple.project.home.domain.KeyValue">
+    <select id="getAccessData" resultType="com.clock.project.home.domain.KeyValue">
         select entry_url as 'key', count(*) as 'value'
         from visit_log
         group by entry_url

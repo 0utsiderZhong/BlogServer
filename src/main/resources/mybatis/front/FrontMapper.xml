@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dimple.project.front.mapper.FrontMapper">
+<mapper namespace="com.clock.project.front.mapper.FrontMapper">
 
     <insert id="insertLink">
         insert into link(title, url, description, header_img, email, create_time) value (#{title}, #{url},
@@ -79,21 +79,21 @@
         where id = #{id}
     </update>
 
-    <select id="selectLinkList" resultType="com.dimple.project.system.domain.Link">
+    <select id="selectLinkList" resultType="com.clock.project.system.domain.Link">
         select id, title, url, description, header_img
         from link
         where delete_time is null
           and display = 1
     </select>
 
-    <select id="selectCategoryList" resultType="com.dimple.project.common.domain.Category">
+    <select id="selectCategoryList" resultType="com.clock.project.common.domain.Category">
         select id, title
         from category
         where delete_time is null
         order by create_by, support desc
     </select>
 
-    <select id="selectSupportBlogList" resultType="com.dimple.project.blog.domain.Blog">
+    <select id="selectSupportBlogList" resultType="com.clock.project.blog.domain.Blog">
         select b.id,
                b.title,
                b.summary,
@@ -114,7 +114,7 @@
         limit 5
     </select>
 
-    <select id="selectHotBlogList" resultType="com.dimple.project.blog.domain.Blog">
+    <select id="selectHotBlogList" resultType="com.clock.project.blog.domain.Blog">
         select b.id,
                b.title,
                b.summary,
@@ -134,7 +134,7 @@
         limit 5
     </select>
 
-    <select id="selectTagList" resultType="com.dimple.project.blog.domain.Tag">
+    <select id="selectTagList" resultType="com.clock.project.blog.domain.Tag">
         select t.id, t.title, t.color, count(tm.id) as count
         from tag t
                  left join tag_mapping tm
@@ -144,7 +144,7 @@
         having count(tm.id) > 0
     </select>
 
-    <select id="selectCarouselList" resultType="com.dimple.project.system.domain.Carousel">
+    <select id="selectCarouselList" resultType="com.clock.project.system.domain.Carousel">
         select id,
                description,
                header_img,
@@ -157,13 +157,13 @@
         where delete_time is null
     </select>
 
-    <select id="selectNoticeList" resultType="com.dimple.project.system.domain.Notice">
+    <select id="selectNoticeList" resultType="com.clock.project.system.domain.Notice">
         select id, title, type, html_content
         from notice
         where delete_time is null
     </select>
 
-    <select id="selectCommentListByPageId" resultType="com.dimple.project.blog.domain.Comment">
+    <select id="selectCommentListByPageId" resultType="com.clock.project.blog.domain.Comment">
         select id,
                parent_id,
                nick_name,
@@ -181,7 +181,7 @@
         order by create_time desc
     </select>
 
-    <resultMap type="com.dimple.project.blog.domain.Blog" id="BlogDetail">
+    <resultMap type="com.clock.project.blog.domain.Blog" id="BlogDetail">
         <result property="id" column="id"/>
         <result property="categoryId" column="category_id"/>
         <result property="title" column="title"/>
@@ -222,7 +222,7 @@
           and id = #{id}
     </select>
 
-    <select id="selectBlogList" resultType="com.dimple.project.blog.domain.Blog">
+    <select id="selectBlogList" resultType="com.clock.project.blog.domain.Blog">
         select b.id, b.category_id, b.title, b.summary,b.weight, b.header_img, b.status,b.support,b.like,b.click,
         b.comment, b.create_time,b.update_time,count(c.id) as comment_count
         from blog b left join comment c
@@ -242,19 +242,19 @@
         </if>
         group by b.id
     </select>
-    <select id="selectTagListByTypeAndId" resultType="com.dimple.project.blog.domain.Tag">
+    <select id="selectTagListByTypeAndId" resultType="com.clock.project.blog.domain.Tag">
         select t.id, color, title, create_by, create_time
         from tag t
         left join tag_mapping tm on t.id = tm.tag_id
         where  tm.blog_id=#{id}
     </select>
-    <select id="selectAbout" resultType="com.dimple.project.system.domain.Config">
+    <select id="selectAbout" resultType="com.clock.project.system.domain.Config">
         select id, config_key, config_value
         from config
         where delete_time is null
           and config_key = 'about'
     </select>
-    <select id="selectCommentById" resultType="com.dimple.project.blog.domain.Comment">
+    <select id="selectCommentById" resultType="com.clock.project.blog.domain.Comment">
         select id,
                nick_name,
                email,
@@ -277,7 +277,7 @@
         from comment
         where id = #{id}
     </select>
-    <select id="selectSupportLinkList" resultType="com.dimple.project.system.domain.Link">
+    <select id="selectSupportLinkList" resultType="com.clock.project.system.domain.Link">
         select id, title, url, description, header_img
         from link
         where support = 1

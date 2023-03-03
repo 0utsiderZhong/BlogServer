@@ -4,9 +4,9 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
     druid:
-      url: jdbc:mysql://localhost:3306/dimpleblog-vue?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+      url: jdbc:mysql://localhost:3306/clock_blog?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
       username: root
-      password: 123456
+      password: mysql8
       # 初始连接数
       initialSize: 5
       # 最小连接池数量
@@ -57,14 +57,14 @@ token:
   expireTime: 30
 
 # 项目相关配置
-dimple:
+clock:
   # 名称
-  name: DimpleBlog
+  name: ClockBlog
   # 版本
-  version: 2.0.0
+  version: 1.0.0
   # 版权年份
-  copyrightYear: 2019
-  # 文件路径 示例（ Windows配置D:/dimple/dimpleBlog/file)
-  profile: D:/dimple/dimpleBlog/file/
+  copyrightYear: 2023
+  # 文件路径 示例（ Windows配置D:/clock/clockBlog/file)
+  profile: D:/DevelopProject/BlogServer/file/
   # 获取ip地址开关
   addressEnabled: true

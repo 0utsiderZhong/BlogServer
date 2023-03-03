@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dimple.project.blog.mapper.BlogMapper">
+<mapper namespace="com.clock.project.blog.mapper.BlogMapper">
 
-    <resultMap type="com.dimple.project.blog.domain.Blog" id="BlogResult">
+    <resultMap type="com.clock.project.blog.domain.Blog" id="BlogResult">
         <result property="id" column="id"/>
         <result property="categoryId" column="category_id"/>
         <result property="title" column="title"/>
@@ -23,7 +23,7 @@
         <result property="updateTime" column="update_time"/>
     </resultMap>
 
-    <resultMap id="BlogResultWithoutContent" type="com.dimple.project.blog.domain.Blog">
+    <resultMap id="BlogResultWithoutContent" type="com.clock.project.blog.domain.Blog">
         <result property="id" column="id"/>
         <result property="categoryId" column="category_id"/>
         <result property="title" column="title"/>
@@ -39,7 +39,7 @@
         <result property="createTime" column="create_time"/>
         <result property="updateBy" column="update_by"/>
         <result property="updateTime" column="update_time"/>
-        <association property="category" javaType="com.dimple.project.common.domain.Category">
+        <association property="category" javaType="com.clock.project.common.domain.Category">
             <id property="id" column="c_id"/>
             <result property="title" column="c_title"/>
             <result property="description" column="c_description"/>
