@@ -4,9 +4,9 @@
 `Clock Blog`是基于SpringBoot2搭建的个人博客系统.
 目前master分支的是基于SpringBoot2和Vue的前后端分离版本.
 
-### 体验链接地址
-[边小丰的个人博客](http://www.bianxiaofeng.com.cn/)
+
 管理员账号：`test` ,管理员密码： `123456`
+
 ### 图片展示
 #### 前台
 ![lrRqBD.png](https://s2.ax1x.com/2020/01/06/lrRqBD.png)
