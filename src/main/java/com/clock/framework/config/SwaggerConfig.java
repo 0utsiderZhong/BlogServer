@@ -72,11 +72,11 @@ public class SwaggerConfig {
         // 用ApiInfoBuilder进行定制
         return new ApiInfoBuilder()
                 // 设置标题
-                .title("标题：ClockBlog后台管理系统")
+                .title("ClockBlog Admin")
                 // 描述
-                .description("代码开源:https://github.com/ClockFeng/ClockBlog")
+                .description("Github: https://github.com/0utsiderZhong?tab=repositories")
                 // 作者信息
-                .contact(new Contact(clockBlogConfig.getName(), "https://www.bianxiaofeng.com", "bianxiaofeng@sohu.com"))
+                .contact(new Contact(clockBlogConfig.getName(), "https://blog.devwei.com", "z1092280043@gmail.com"))
                 // 版本
                 .version("版本号:" + clockBlogConfig.getVersion())
                 .build();
