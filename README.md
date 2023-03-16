@@ -2,6 +2,8 @@
 <h1>1.Introduction</h1>
 
 `Clock Blog` is a blog system base on SpringBoot and Vue. <br>
+Blog-User-UI:  https://github.com/0utsiderZhong/BlogFront<br>
+Blog-Admin-UI: https://github.com/0utsiderZhong/BlogBackend<br>
 
 <h1>2.Dependency</h1>
 
