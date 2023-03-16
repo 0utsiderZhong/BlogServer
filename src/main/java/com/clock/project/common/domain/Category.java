@@ -41,7 +41,7 @@ public class Category extends BaseEntity implements Serializable {
      * 是否推荐
      */
     @NotNull(message = "推荐设置不能为空")
-    private Boolean support;
+    private Boolean support = false;
     /**
      * 分类的类型
      */

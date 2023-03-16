@@ -15,6 +15,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.clock.framework.security.filter.JwtAuthenticationTokenFilter;
 import com.clock.framework.security.handle.AuthenticationEntryPointImpl;
 import com.clock.framework.security.handle.LogoutSuccessHandlerImpl;
+import org.springframework.security.web.firewall.HttpFirewall;
+import org.springframework.security.web.firewall.StrictHttpFirewall;
 
 /**
  * @className: SecurityConfig
@@ -33,6 +35,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     JwtAuthenticationTokenFilter authenticationTokenFilter;
+
+    //如果你希望请求地址中可以出现 // 可以按照如下方式配置防火墙规则
+    @Bean
+    HttpFirewall httpFirewall() {
+        StrictHttpFirewall firewall = new StrictHttpFirewall();
+        firewall.setAllowUrlEncodedDoubleSlash(true);
+        return firewall;
+    }
 
     @Bean
     @Override

@@ -75,10 +75,10 @@ public class FrontController extends BaseController {
     @GetMapping("/menus")
     public AjaxResult menu() {
         List<FrontMenu> menuList = new ArrayList<>();
-        menuList.add(new FrontMenu("时光轴", 1, false, "/archive"));
-        menuList.add(new FrontMenu("友链", 2, false, "/link"));
-        menuList.add(new FrontMenu("留言", 3, false, "/leaveComment"));
-        menuList.add(new FrontMenu("关于", 4, false, "/about"));
+        menuList.add(new FrontMenu("Blog TimeLine", 1, false, "/archive"));
+        menuList.add(new FrontMenu("Site Links", 2, false, "/link"));
+        menuList.add(new FrontMenu("Call Me", 3, false, "/leaveComment"));
+        menuList.add(new FrontMenu("About Me", 4, false, "/about"));
         return AjaxResult.success(menuList);
     }
 
