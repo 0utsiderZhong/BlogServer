@@ -8,8 +8,8 @@ Blog-Admin-UI: https://github.com/0utsiderZhong/BlogBackend<br>
 <h1>2.Dependency</h1>
 
 **Envs**
- - Java-8
- - SpringBoot
+ - Java8
+ - Maven3.6
  - Mysql
  - Redis
 
@@ -34,6 +34,7 @@ Blog-Admin-UI: https://github.com/0utsiderZhong/BlogBackend<br>
     - **Support bilingual**
     - **Add ChatGPT API**
     - **Support search with ElasticSearch**
+    - **Support Google storage API**
 
 
 
