@@ -39,7 +39,7 @@ create table blog
     title           varchar(150) charset utf8 null comment ' 文章标题 ',
     summary         varchar(256) charset utf8 null comment ' 摘要 ',
     header_img_type int not null,
-    header_img      varchar(256) charset utf8 null comment ' 封面图片地址 ',
+    header_img      longblob NULL COMMENT ' 封面图片',
     html_content    longtext null,
     content         longtext charset utf8 null comment ' 正文内容 ',
     status          tinyint null comment ' 文章状态,
