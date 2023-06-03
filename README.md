@@ -26,15 +26,6 @@ Blog-Admin-UI: https://github.com/0utsiderZhong/BlogBackend<br>
 5. Finally, you can start your SpringBoot Application
 
 
-<h1>4.Todo</h1>
-
-1. **Project is developing...**
-2. **Todo List**
-    - **Bugs fix**
-    - **Support bilingual**
-    - **Add ChatGPT API**
-    - **Support search with ElasticSearch**
-    - **Support Google storage API**
 
 
 
