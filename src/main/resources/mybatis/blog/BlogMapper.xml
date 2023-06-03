@@ -29,6 +29,7 @@
         <result property="title" column="title"/>
         <result property="summary" column="summary"/>
         <result property="headerImg" column="header_img"/>
+        <result property="headerImgType" column="header_img_type" jdbcType="INTEGER"/>
         <result property="status" column="status"/>
         <result property="comment" column="comment"/>
         <result property="like" column="like"/>
@@ -50,7 +51,7 @@
     </resultMap>
 
     <select id="selectBlogList" resultMap="BlogResultWithoutContent">
-        select b.id, b.category_id, b.title, b.summary,b.weight, b.header_img, b.status,b.support,b.like,b.click,
+        select b.id, b.category_id, b.title, b.summary,b.weight, b.header_img, b.header_img_type, b.status,b.support,b.like,b.click,
         b.comment, b.create_by, b.create_time,c.id c_id,c.title c_title,c.description c_description,c.support
         c_support,c.create_by c_create_by,c.create_time c_create_time
         from blog b ,category c
@@ -73,8 +74,24 @@
     </select>
 
     <select id="selectBlogById" resultMap="BlogResult">
-        select id, category_id, title, summary, header_img, content,support,click,`like`,status, weight,comment, create_by, create_time,update_time from blog
-        where id = #{id} and delete_time is null
+        select id,
+               category_id,
+               title,
+               summary,
+               header_img,
+               content,
+               support,
+               click,
+               `like`,
+               status,
+               weight,
+               comment,
+               create_by,
+               create_time,
+               update_time
+        from blog
+        where id = #{id}
+          and delete_time is null
     </select>
 
 
@@ -99,15 +116,33 @@
         group by b.id
     </select>
     <select id="selectBlogByIdQuery" resultMap="BlogResult">
-        select b.id, b.category_id, b.title, b.summary, b.header_img, b.html_content as content,b.support,b.click,b.like,b.status, b.weight,b.comment, b.create_by, b.create_time,b.update_time,count(c.id) as comment_count
-        from blog b left join comment c
-        on b.id=c.page_id
-        where b.id = #{id} and b.delete_time is null and b.status=1
+        select b.id,
+               b.category_id,
+               b.title,
+               b.summary,
+               b.header_img,
+               b.html_content as content,
+               b.support,
+               b.click,
+               b.like,
+               b.status,
+               b.weight,
+               b.comment,
+               b.create_by,
+               b.create_time,
+               b.update_time,
+               count(c.id)    as comment_count
+        from blog b
+                 left join comment c
+                           on b.id = c.page_id
+        where b.id = #{id}
+          and b.delete_time is null
+          and b.status = 1
     </select>
 
 
     <select id="selectBlogListByCategoryIds" resultMap="BlogResultWithoutContent">
-        select  id ,category_id, title,summary,weight, header_img, status,support,comment, create_by, create_time
+        select id ,category_id, title,summary,weight, header_img, status,support,comment, create_by, create_time
         from blog
         where delete_time is null and category_id in
         <foreach item="id" collection="ids" open="(" separator="," close=")">
@@ -171,14 +206,21 @@
     </update>
 
     <update id="incrementBlogLike">
-        update blog set `like`=`like`+1 where id=#{id}
+        update blog
+        set `like`=`like` + 1
+        where id = #{id}
     </update>
     <update id="incrementBlogClick">
-         update blog set click=click+1 where id=#{id}
+        update blog
+        set click=click + 1
+        where id = #{id}
     </update>
 
     <delete id="deleteBlogById">
-        update  blog set delete_time =sysdate() ,delete_by=#{username} where id = #{id}
+        update blog
+        set delete_time =sysdate(),
+            delete_by=#{username}
+        where id = #{id}
     </delete>
 
     <delete id="deleteBlogByIds">
