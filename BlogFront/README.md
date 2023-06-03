@@ -25,13 +25,6 @@
 
 
 
-<h1>4.Todo</h1>
-
-1. **Project is developing...**
-2. **Todo List**
-   * **Bugs fix**
-   * **Support bilingual**
-   * **Add ChatGPT API**
 
 
 
